@@ -15,3 +15,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "AosOnboarding"
 include ':app'
+include ':core'
+include ':features'
+include ':features:feature-login'
+include ':features:feature-signup'
+include ':ui-components'
