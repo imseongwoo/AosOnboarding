@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                     Scaffold(
                         topBar = {},
                         bottomBar = {
-                            if (uiRoute.value == "HOME" || uiRoute.value == "GRAPH" || uiRoute.value == "SETTINGS") {
+                            if (uiRoute.value == "LOGIN" || uiRoute.value == "SIGNUP") {
                                 CustomBottomNavigation(
                                     modifier = Modifier.height(60.dp),
                                     items = listOf(
