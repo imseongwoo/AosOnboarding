@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
@@ -79,19 +79,14 @@ fun CustomBottomNavigationPreview() {
     CustomBottomNavigation(
         items = listOf(
             BottomNavItem(
-                icon = Icons.Default.Home,
-                route = Route.HOME,
-                configuration = Route.HOME
-            ),
-            BottomNavItem(
                 icon = Icons.Default.Person,
-                route = Route.GRAPH,
-                configuration = Route.GRAPH
+                route = Route.LOGIN,
+                configuration = Route.LOGIN
             ),
             BottomNavItem(
-                icon = Icons.Default.Settings,
-                route = Route.SETTINGS,
-                configuration = Route.SETTINGS
+                icon = Icons.Default.Info,
+                route = Route.SIGNUP,
+                configuration = Route.SIGNUP
             )
         ), navHostController = rememberNavController()
     ) {

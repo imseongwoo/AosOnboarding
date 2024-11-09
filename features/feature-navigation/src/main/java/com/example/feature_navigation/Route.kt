@@ -1,9 +1,8 @@
 package com.example.feature_navigation
 
 object Route {
-    const val HOME = "HOME"
-    const val GRAPH = "GRAPH"
-    const val SETTINGS = "SETTINGS"
+    const val LOGIN = "LOGIN"
+    const val SIGNUP = "SIGNUP"
 }
 
-val showBarList = listOf(Route.HOME)
+val showBarList = listOf(Route.LOGIN)
