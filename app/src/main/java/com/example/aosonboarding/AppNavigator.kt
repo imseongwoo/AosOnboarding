@@ -9,6 +9,8 @@ import androidx.navigation.compose.composable
 import com.example.feature_login.presentation.screen.LoginScreen
 import com.example.feature_login.presentation.viewmodel.LoginViewModel
 import com.example.feature_navigation.Route
+import com.example.feature_signup.presentation.screen.SignUpScreen
+import com.example.feature_signup.presentation.viewmodel.SignUpViewModel
 
 @Composable
 fun AppNavigator(
@@ -17,6 +19,7 @@ fun AppNavigator(
     onNavigate: (String) -> Unit
 ) {
     val loginViewModel: LoginViewModel = hiltViewModel()
+    val signUpViewModel: SignUpViewModel = hiltViewModel()
 
     NavHost(
         navController = navHostController,
@@ -24,11 +27,14 @@ fun AppNavigator(
     ) {
         composable(Route.LOGIN) {
             onNavigate(Route.LOGIN)
-            LoginScreen(navHostController, loginViewModel, onNavigateToSignUpScreen = {})
+            LoginScreen(navHostController, loginViewModel, onNavigateToSignUpScreen = {
+                navHostController.navigate("SIGNUP")
+            })
         }
 
         composable(Route.SIGNUP) {
             onNavigate(Route.SIGNUP)
+            SignUpScreen(navHostController, signUpViewModel)
         }
     }
 }

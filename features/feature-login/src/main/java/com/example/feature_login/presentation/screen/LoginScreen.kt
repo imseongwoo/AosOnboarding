@@ -33,6 +33,7 @@ import com.example.feature_login.presentation.viewmodel.LoginViewModel
 import com.example.ui_components.CustomGradientButton
 import com.example.ui_components.InputView
 import com.example.ui_components.WhiteButton
+import com.example.ui_components.values.mainTheme
 
 val LocalLoginScreenPreviewMode: ProvidableCompositionLocal<Boolean> = compositionLocalOf { false }
 
@@ -53,7 +54,7 @@ fun LoginScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(scrollState)
-                    .background(color = Color(0xFF232A39))
+                    .background(color = mainTheme)
                     .padding(40.dp)
             ) {
                 IconView()
