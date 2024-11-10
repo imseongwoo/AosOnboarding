@@ -25,11 +25,12 @@ fun CustomGradientButton(
     cornerRadius: Dp,
     buttonText: String,
     roundedCornerShape: RoundedCornerShape,
-    onClick: () -> Unit
+    modifier: Modifier,
+    onClick: () -> Unit,
 ) {
 
     Button(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(start = 32.dp, end = 32.dp),
         onClick = onClick,

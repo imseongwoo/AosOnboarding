@@ -16,7 +16,8 @@ fun InputView(
     state: State<String>,
     label: String,
     placeholder: String,
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit,
+    modifier: Modifier
 ) {
     OutlinedTextField(
         value = state.value,
@@ -25,14 +26,20 @@ fun InputView(
         onValueChange = {
             onValueChange(it)
         },
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         textStyle = MaterialTheme.typography.bodyLarge
     )
 }
 
 @Composable
 @Preview
-fun InputViewPreview(){
+fun InputViewPreview() {
     val state = remember { mutableStateOf("preview") }
-    InputView(state = state, label = "test" , placeholder = "test", onValueChange = {})
+    InputView(
+        state = state,
+        label = "test",
+        placeholder = "test",
+        onValueChange = {},
+        modifier = Modifier
+    )
 }
