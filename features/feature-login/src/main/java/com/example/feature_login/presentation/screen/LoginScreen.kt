@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,6 +53,7 @@ fun LoginScreen(
         Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier
+                    .testTag("LoginScreen")
                     .fillMaxSize()
                     .verticalScroll(scrollState)
                     .background(color = mainTheme)
@@ -65,7 +67,8 @@ fun LoginScreen(
                     text = "안녕하세요.\n\n앱이름 입니다.",
                     fontSize = 30.sp,
                     color = Color.White,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.testTag("LoginScreenTextField")
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -74,7 +77,9 @@ fun LoginScreen(
                     state = viewModel.userId,
                     label = "아이디",
                     placeholder = "아이디를 입력해 주세요.",
-                    onValueChange = { viewModel.updateUserId(it) })
+                    onValueChange = { viewModel.updateUserId(it) },
+                    modifier = Modifier.testTag("LoginScreenIdTextField")
+                )
 
                 Spacer(modifier = Modifier.height(15.dp))
 
@@ -82,7 +87,9 @@ fun LoginScreen(
                     state = viewModel.userPassword,
                     label = "비밀번호",
                     placeholder = "비밀번호를 입력해 주세요",
-                    onValueChange = { viewModel.updateUserPassword(it) })
+                    onValueChange = { viewModel.updateUserPassword(it) },
+                    modifier = Modifier.testTag("LoginScreenPwTextField")
+                )
 
                 Spacer(modifier = Modifier.height(35.dp))
 
@@ -90,7 +97,8 @@ fun LoginScreen(
                     gradientColors = listOf(Color(0xFFEE6DE7), Color(0xFF857FEB)),
                     cornerRadius = 16.dp,
                     buttonText = "로그인",
-                    roundedCornerShape = RoundedCornerShape(20.dp)
+                    roundedCornerShape = RoundedCornerShape(20.dp),
+                    modifier = Modifier.testTag("LoginScreenLoginButton")
                 ) {
                     viewModel.login()
                 }
@@ -104,7 +112,8 @@ fun LoginScreen(
                 WhiteButton(
                     buttonText = "회원가입",
                     textColor = Color(0xFF857FEB),
-                    roundedCornerShape = RoundedCornerShape(20.dp)
+                    roundedCornerShape = RoundedCornerShape(20.dp),
+                    modifier = Modifier.testTag("LoginScreenSignUpButton")
                 ) {
                     onNavigateToSignUpScreen()
                 }
@@ -143,7 +152,9 @@ fun PreviewLoginScreen() {
             state = state,
             label = " 학번",
             placeholder = "학번을 입력해 주세요.",
-            onValueChange = { })
+            onValueChange = { },
+            modifier = Modifier
+        )
 
         Spacer(modifier = Modifier.height(15.dp))
 
@@ -151,7 +162,9 @@ fun PreviewLoginScreen() {
             state = state,
             label = "비밀번호",
             placeholder = "비밀번호를 입력해 주세요",
-            onValueChange = { })
+            onValueChange = { },
+            modifier = Modifier
+        )
 
         Spacer(modifier = Modifier.height(35.dp))
 
@@ -159,7 +172,8 @@ fun PreviewLoginScreen() {
             gradientColors = listOf(Color(0xFFEE6DE7), Color(0xFF857FEB)),
             cornerRadius = 16.dp,
             buttonText = "로그인",
-            roundedCornerShape = RoundedCornerShape(20.dp)
+            roundedCornerShape = RoundedCornerShape(20.dp),
+            modifier = Modifier
         ) {
         }
 
@@ -172,7 +186,8 @@ fun PreviewLoginScreen() {
         WhiteButton(
             buttonText = "회원가입",
             textColor = Color(0xFF857FEB),
-            roundedCornerShape = RoundedCornerShape(20.dp)
+            roundedCornerShape = RoundedCornerShape(20.dp),
+            modifier = Modifier
         ) {
 
         }
@@ -184,6 +199,6 @@ fun PreviewLoginScreen() {
 fun LoginScreenPreview() {
     CompositionLocalProvider(LocalLoginScreenPreviewMode provides true) {
         val viewModel: LoginViewModel = hiltViewModel()
-        LoginScreen(navHostController = rememberNavController(),viewModel, {} )
+        LoginScreen(navHostController = rememberNavController(), viewModel, {})
     }
 }
