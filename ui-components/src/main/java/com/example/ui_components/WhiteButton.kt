@@ -25,6 +25,7 @@ fun WhiteButton(
     buttonText: String,
     textColor: Color,
     roundedCornerShape: RoundedCornerShape,
+    modifier: Modifier,
     onClick: () -> Unit
 ) {
     Column(modifier = Modifier
@@ -32,7 +33,7 @@ fun WhiteButton(
         .wrapContentSize(align = Alignment.Center)) {
         Button(
             onClick = onClick,
-            modifier = Modifier
+            modifier = modifier
                 .wrapContentSize()
                 .fillMaxWidth(0.5f),
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
@@ -63,7 +64,8 @@ fun WhiteButtonPreview() {
     WhiteButton(
         buttonText = "preview",
         textColor = Color.Magenta,
-        roundedCornerShape = RoundedCornerShape(20.dp)
+        roundedCornerShape = RoundedCornerShape(20.dp),
+        modifier = Modifier
     ) {
     }
 }
