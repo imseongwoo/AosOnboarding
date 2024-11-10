@@ -12,4 +12,5 @@ dependencies {
     implementation project(':core')
     implementation project(':features:feature-login')
     implementation project(':features:feature-signup')
+    implementation project(':features:feature-navigation')
 }

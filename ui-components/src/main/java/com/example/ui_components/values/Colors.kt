@@ -1,4 +1,4 @@
-package com.example.ui_components
+package com.example.ui_components.values
 
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
